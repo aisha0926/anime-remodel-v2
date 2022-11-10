@@ -1,0 +1,17 @@
+<section id="breadcrumb">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <% for(let i = 0; i< breadcrumbs.length; i++){ %> <%
+      if(breadcrumbs[i].route){ %>
+      <li class="breadcrumb-item">
+        <a href="<%= breadcrumbs[i].route %>"><%= breadcrumbs[i].name %></a>
+      </li>
+      <% } else {%>
+      <li class="breadcrumb-item"><%= breadcrumbs[i].name %></li>
+      <% } %> <% } %>
+      <!-- 
+      <li class="breadcrumb-item"><a href="#">Library</a></li>
+      <li class="breadcrumb-item active" aria-current="page">Data</li> -->
+    </ol>
+  </nav>
+</section>

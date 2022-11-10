@@ -1,0 +1,81 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/navbar.ejs") %> 
+<%- include("components/container-open.ejs") %> 
+
+<h1 style="margin: 1% auto">Ai'Folio Anime List Journey</h1>
+<hr />
+<article id="left-col">
+  <p>
+    Started this web application for about 1 month. Created 3 versions of
+    it, improving it every time. Started from a really simple
+    functionality to complex functionality as I hone my skills. There were
+    a lot of ups and downs whilst developing this site.
+  </p>
+  <p>
+    <strong>First hurdle</strong> was making multiple requests which was
+    later on solved using <em>two</em> different solutions. One was using
+    callback function and another was using async and await. On top of
+    that, adhoc solution was used for one of the routes for faster data
+    retrieval.
+  </p>
+  <p>
+    <strong>Second hurdle</strong> was the implementation of modal,
+    spinner and pagination. Since API request inevitably refreshes the
+    page as it retrieves the data, I was faced with an issue of displaying
+    it to my modal. I later on solved this issue using HTML data
+    attributes as well as AJAX where a request is done in the frontend.
+  </p>
+
+  <p>
+    <strong>Lastly,</strong> creating relation between two documents in
+    MongoDB using Mongoose emerged. Whilst it is easy to create a
+    relational database using SQL, not so much with MongoDB which is a
+    NoSQL database. To my knowledge, for this to work, both document have
+    to save the data at the same time for it to create a relation,
+    however, as I dug deeper, I found a solution. That is, creating a
+    referrence via mongoose ID type. Through this solution, should my
+    schema change in the future, it will be easier to scale.
+  </p>
+
+  <section class="about-section">
+    <small class="about-text"
+      ><em
+        >Version 2 - No Database, Pagination and AJAX request implemented.
+      </em></small
+    >
+    <img
+      class="col-img"
+      src="/img/animev1-full.PNG"
+      alt="Ai'Folio version 2 image"
+    />
+  </section>
+</article>
+
+<article id="right-col">
+  <small class="about-text"
+    ><em>Version 1 - Simple request functionality </em></small
+  >
+  <img
+    class="col-img about-text"
+    src="/img/animev1.PNG"
+    alt="Ai'Folio version 1"
+  />
+
+  <div style="margin-top: 10%;">
+      <p>
+      Version 3 is the one you are on right now. If you wish to see the other pages,
+      feel free to visit them at:
+      
+      <ol>
+          <li><a href=" https://anime-folio.herokuapp.com/" target="_blank">Version 1</a></li>
+          <li><a href=" https://anime-remodel.herokuapp.com/" target="_blank">Version 2</a></li>
+      </ol>
+
+      <strong><em>*If I were to get enough support, I am thinking of privitizing this site, turning it
+      into a streaming site for anime as well as a hub for manhwa and manga readers</em> </strong> 
+      </p>
+  </div>
+</article>
+
+<%- include("components/container-end.ejs") %> 
+<%- include("partials/footer.ejs") %>

@@ -1,0 +1,94 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/navbar.ejs") %> 
+<%- include("components/container-open.ejs") %>  \
+<%- include("components/spinner.ejs") %>
+<%- include("components/anime-modal.ejs") %>
+
+<!-- Cards Start -->
+<div class="row cards-row-modified modified-row">
+  <% for(let i=0; i<data.results.length;i++){ %>
+  <div class="cards card-shadow block-section"  data-score="<%=  data.results[i].score; %>" 
+    data-imgUrl="<%= data.results[i].image_url; %>" data-title="<%=  data.results[i].title %>">
+    <div class="cards-col-lg">
+      <div class="card-rank col-sm">
+        <% if(data.results[i].rank < 99){ %>
+          <p class="rank">#<%=  data.results[i].rank; %></p>
+        <% } else { %>
+          <p class="rank-font-35">#<%=  data.results[i].rank; %></p>
+        <% } %>
+      </div>
+      <div class="col-sm card-img-div">
+        <img
+          class="card-img-resize"
+          src="<%= data.results[i].image_url; %>"
+          alt="results image"
+        />
+      </div>
+      <div class="cards-content col-sm">
+        <h1 class="score">
+          <% if(data.results[i].score !== 0){ %>
+            <% if(data.results[i].score < 7){ %>
+              <span class="low-score">
+                <%= data.results[i].score; %>
+              </span> 
+            <% } else { %>
+              <span>
+                <%= data.results[i].score; %>
+              </span> 
+            <% } %>
+          <% } else { %>
+           <span class="na">N/A</span> 
+          <% } %>
+        </h1>
+        <div class="content">
+            <div class="box">
+            <h4>
+                <% if(data.results[i].title.length > 20){ %>
+                <%=  data.results[i].title.substring(0, 20) + '...' %>
+                <% } else { %>
+                <%=  data.results[i].title %>
+                <% } %>
+            </h4>
+            <p>
+                (<%= data.results[i].type %>) 
+                <% if(data.results[i].episodes !== null){ %>
+                <%= data.results[i].episodes %>
+                <% } else { %>
+                <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            <p>
+                <% if(data.results[i].end_date !== null){ %>
+                <%= startingDate[i] %> - <%= endingDate[i] %>
+                <% } else { %>
+                <%= startingDate[i] %> -  <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% } %>
+
+</div>
+<!-- Cards End -->
+
+<!-- HAMBURGER BUTTON Start -->
+<button
+  class="btn offcanvas-modified"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample"
+  aria-controls="offcanvasExample"
+>
+  <img src="/img/list.png" alt="" />
+</button>
+
+<%- include("components/offcanvas.ejs") %>
+<!-- HAMBURGER BUTTON End -->
+
+<%- include("components/modal.ejs") %> 
+<%- include("components/container-end.ejs") %> 
+<%- include("partials/footer.ejs") %>

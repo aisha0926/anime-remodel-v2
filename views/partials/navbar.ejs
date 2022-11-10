@@ -1,0 +1,76 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark navbar-padding">
+  <div class="container-fluid">
+    <a href="" class="navbar-brand">
+      <img src="/img/icon.png" alt="Logo" style="width: 60px; height: 59px"
+    /></a>
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarContent"
+      aria-controls="navbarContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a href="/" class="nav-link active" data-navtab="home">Home</a>
+        </li>
+        <li class="nav-item">
+          <a href="/anime" class="nav-link" data-navtab="anime">Anime</a>
+        </li>
+        <li class="nav-item">
+          <a href="/genre2" class="nav-link" data-navtab="genre">Genre</a>
+        </li>
+        <li class="nav-item">
+          <a href="/seasons" class="nav-link" data-navtab="seasons">Seasons</a>
+        </li>
+      </ul>
+      <!-- -------- -->
+      <li class="nav-item dropdown">
+        <% if(user){ %>
+        <div id="user-div">
+          <button
+            class="nav-link dropdown-toggle user-dropdown"
+            href="#"
+            id="navbarDropdown"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            <p class="inline-block" style="margin: 0; padding: 0 10px">
+              <%= user %>
+            </p>
+            <i class="fas fa-user fa-2x"></i>
+          </button>
+
+          <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <li><a class="dropdown-item" href="/logout">Logout</a></li>
+          </ul>
+          <% } %>
+        </div>
+      </li>
+      <form class="d-flex" action="/" method="POST">
+        <input
+          class="form-control me-2"
+          type="search"
+          placeholder="Search"
+          aria-label="Search"
+          name="searchbar"
+        />
+        <button class="btn btn-outline-info" type="submit">Search</button>
+      </form>
+      <!-- -------- -->
+      <!-- <div id="user-div">
+        <p class="inline-block" style="margin: 0; padding: 0 10px">
+          <%= user %>
+        </p>
+        <i class="fas fa-user fa-2x"></i>
+      </div> -->
+    </div>
+  </div>
+</nav>

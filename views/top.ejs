@@ -1,0 +1,140 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/navbar.ejs") %> 
+<%- include("components/container-open.ejs") %> 
+<%- include("components/breadcrumb.ejs") %> 
+<%- include("components/nav-tab.ejs") %>
+
+<%- include("components/spinner.ejs") %>
+
+<%- include("components/anime-modal.ejs") %>
+<!-- Cards Start -->
+<div class="row cards-row-modified">
+  <% for(let i=0; i<data.top.length;i++){ %>
+  <div class="cards card-shadow block-section" data-score="<%=  data.top[i].score; %>" 
+    data-imgUrl="<%= data.top[i].image_url; %>" data-title="<%=  data.top[i].title %>">
+    <div class="cards-col-lg">
+      <div class="card-rank col-sm">
+        <% if(data.top[i].rank < 99){ %>
+          <p class="rank">#<%=  data.top[i].rank; %></p>
+        <% } else { %>
+          <p class="rank-font-35">#<%=  data.top[i].rank; %></p>
+        <% } %>
+      </div>
+      <div class="col-sm card-img-div">
+        <img
+          class="card-img-resize"
+          src="<%= data.top[i].image_url; %>"
+          alt="Anime image"
+        />
+      </div>
+      <div class="cards-content col-sm">
+        <h1 class="score">
+          <% if(data.top[i].score !== 0){ %>
+            <% if(data.top[i].score < 7){ %>
+              <span class="low-score">
+                <%= data.top[i].score; %>
+              </span> 
+            <% } else { %>
+              <span>
+                <%= data.top[i].score; %>
+              </span> 
+            <% } %>
+          <% } else { %>
+           <span class="na">N/A</span> 
+          <% } %>
+        </h1>
+        <div class="content" style="overflow-x:hidden; overflow-y: auto;">
+            <div class="box">
+            <h4>
+                <% if(data.top[i].title.length > 20){ %>
+                <%=  data.top[i].title.substring(0, 20) + '...' %>
+                <% } else { %>
+                <%=  data.top[i].title %>
+                <% } %>
+            </h4>
+            <p>
+                (<%= data.top[i].type %>) 
+                <% if(data.top[i].episodes !== null){ %>
+                <%= data.top[i].episodes %>
+                <% } else { %>
+                <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            <p>
+                <% if(data.top[i].end_date !== null){ %>
+                <%= data.top[i].start_date %> - <%= data.top[i].end_date %>
+                <% } else { %>
+                <%= data.top[i].start_date %> -  <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            </div>
+        </div>
+
+        <!-- <button class="button-add" id="liveToastBtn">
+          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="35" fill="#4ab4c0" class="bi bi-plus" viewBox="0 0 16 16">
+            <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+          </svg>
+      </button> -->
+      </div>
+    </div>
+  </div>
+<!-- </form> -->
+<!-- Cards End -->
+
+  <% } %>
+</div>
+
+  <!-- HAMBURGER BUTTON Start -->
+  <button class="btn offcanvas-modified" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <img src="/img/list.png" alt="">
+  </button>
+  
+  <%- include("components/offcanvas.ejs") %>
+    <!-- HAMBURGER BUTTON End -->
+
+<!-- Pagination start -->
+<nav aria-label="Page navigation">
+    <ul class="pagination justify-content-center">
+       <% var j = 0; %>
+       <%
+        var pages = page >= 5 ? page : 5;
+        var pagesStart = pages - 4;
+        if(page >= pages) {
+        pages = pages + 3;
+        pagesStart = pagesStart + 3;
+        }
+        %>
+       <% if(page === 1){ %>
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Previous</a>
+         </li>
+        <% } else { %>
+            <li class="page-item ">
+                <a class="page-link" href="/anime/<%= page-1 %>/<%= category %>/<%= tabName %>">Previous</a>
+             </li>
+        <% } %>
+        <% for(let i = pagesStart; i<=pages;i++){ %>
+            <li class="page-item">
+       
+                <a class="page-link" href="/anime/<%= i %>/<%= category %>/<%= tabName %>"><%= i %></a>
+   
+            </li>
+          <% j++; %>
+        <% } %>
+
+        <% if(page !== j){ %>
+            <li class="page-item">
+                <a class="page-link" href="/anime/<%= page+1 %>/<%= category %>/<%= tabName %>">Next</a>
+             </li>
+        <% } else { %>
+            <li class="page-item disabled">
+                <a class="page-link" href="/anime/<%= page+1 %>/<%= category %>/<%= tabName %>">Next</a>
+            </li>
+
+        <% } %>
+    </ul>
+ </nav>
+<!-- Pagination start -->
+
+<%- include("components/container-end.ejs") %> 
+<%- include("partials/footer.ejs") %>

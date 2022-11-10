@@ -1,0 +1,67 @@
+<div
+  class="modal fade bd-example-modal-lg"
+  id="animeModel"
+  tabindex="-1"
+  role="dialog"
+  aria-labelledby="exampleModalLabel"
+  aria-hidden="true"
+>
+  <div class="modal-dialog modal-lg" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <!-- <h5 class="modal-title" id="animeModalTitle">Modal title</h5> -->
+        <!-- <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> -->
+        <!-- </button> -->
+      </div>
+      <div class="modal-body">
+        <div class="card">
+          <img id="posterImage" class="card-img-bottom" alt="Card image cap" />
+          <div class="card-body">
+            <!-- <h5 class="card-title" id="cardTitle">Card title</h5> -->
+            <h3 class="modal-title content-bottom-border" id="animeModalTitle">
+              Modal title
+            </h3>
+            <p class="card-text" id="Synopsis"></p>
+            <p class="card-text" id="episodes"></p>
+            <p class="card-text" id="score"></p>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <form action="/animelist" method="post">
+          <input
+            type="text"
+            name="animeList"
+            id="animeName"
+            style="display: none"
+          />
+          <input
+            type="text"
+            name="urlPath"
+            id="urlPath"
+            style="display: none"
+          />
+          <button
+            type="submit"
+            class="btn btn-dark"
+            id="addToList"
+            name=""
+            data-bs-container="body"
+            data-bs-toggle="popover"
+            data-bs-placement="top"
+            data-bs-content="Added to your Watch List"
+          >
+            Add to List
+          </button>
+        </form>
+        <button type="button" class="btn btn-dark" data-bs-dismiss="modal">
+          Close
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- <form action="/animelist" method="post" style="display: none;">
+  <input type="text" name="animeList" id="test">
+</form> -->
+</div>

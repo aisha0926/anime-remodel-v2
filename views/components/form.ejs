@@ -1,0 +1,101 @@
+<% if(type === "login"){ %>
+<!-- LOGIN Start -->
+<div class="container-fluid content-padding">
+  <div class="login-div borders">
+    <div class="login-text">
+      <p style="margin: 0; font-weight: 600">Start using Ai'Folio AniList</p>
+      <small style="margin-bottom: 3%"
+        >Join Ai'Folio and create your own anime list!</small
+      >
+    </div>
+
+    <form action="/credentials/login" method="post" style="margin-top: 5%">
+      <input type="text" name="urlPath" id="urlPath" style="display: none" />
+      <label for="username" class="display-block">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="display-block login-fields"
+      />
+      <% if(success){ %>
+      <small class="error-text"><em><%= error %></em></small> <br />
+      <% } %>
+      <label for="" class="display-block">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="display-block login-fields"
+      />
+      <button type="submit" class="display-block btn-dark login-btn borders">
+        Login
+      </button>
+      <div class="login-text">
+        <small><em>*This form requires Javascript to be enabled</em></small>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- LOGIN End -->
+
+<% } else { %>
+<!-- SIGN UP Start -->
+<div class="container-fluid content-padding">
+  <div class="login-div borders">
+    <div class="login-text">
+      <p style="margin: 0; font-weight: 600">Start using Ai'Folio AniList</p>
+      <small style="margin-bottom: 3%"
+        >Join Ai'Folio and create your own anime list!</small
+      >
+    </div>
+
+    <form action="/credentials/signup" method="post" style="margin-top: 5%">
+      <input type="text" name="urlPath" id="urlPath" style="display: none" />
+      <label for="email" class="display-block">Email</label>
+      <input
+        class="display-block login-fields"
+        type="email"
+        name="email"
+        id="email"
+      />
+      <label for="" class="display-block">Username</label>
+      <input
+        type="text"
+        name="username"
+        id="username"
+        class="display-block login-fields"
+      />
+      <!-- <% if(success){ %>
+      <small class="error-text"><em>Username already exists</em></small>
+      <% } %> -->
+      <label for="password" class="display-block">Password</label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="display-block login-fields"
+      />
+      <% if(success){ %>
+      <small class="error-text"><em><%= error %></em></small> <br />
+      <% } else { %>
+      <small class="login-bottom-text"
+        ><em>(Between 2-16 characters)</em></small
+      >
+      <% } %>
+      <label for="dob" class="display-block">Date of birth</label>
+      <input type="date" name="dob" id="dob" class="login-fields" />
+      <small class="login-bottom-text"
+        ><em>(Your birthday won't be shown in public)</em></small
+      >
+      <button type="submit" class="display-block btn-dark login-btn borders">
+        Create Account
+      </button>
+      <div class="login-text">
+        <small><em>*This form requires Javascript to be enabled</em></small>
+      </div>
+    </form>
+  </div>
+</div>
+<!-- SIGN UP Start -->
+<% } %>

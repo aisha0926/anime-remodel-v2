@@ -1,0 +1,157 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/navbar.ejs") %> 
+<%- include("components/container-open.ejs") %> 
+<%- include("components/breadcrumb.ejs") %> 
+<%- include("components/nav-tab.ejs") %>
+<%- include("components/spinner.ejs") %>
+
+<%- include("components/anime-modal.ejs") %> 
+
+<% if(tabName !== 'Monday' && tabName !== 'Tuesday' && tabName !== 'Wednesday' && tabName !== 'Thursday' && tabName !== 'Friday' && tabName !== 'Saturday' && tabName !== 'Sunday'){ %>
+<!-- Cards Start -->
+<div class="row cards-row-modified modified-row">
+  <% for(let i=0; i<data.anime.length;i++){ %>
+  <div class="cards card-shadow block-section"  data-score="<%=  data.anime[i].score; %>" 
+    data-imgUrl="<%= data.anime[i].image_url; %>" data-title="<%=  data.anime[i].title %>" data-genre="<%=  data.anime[i].genres.map(x=>x.name).join(',') %>">
+    <div class="cards-col-lg">
+      <div class="card-rank col-sm">
+        <% if(data.anime[i].rank < 99){ %>
+          <p class="rank">#<%=  data.anime[i].rank; %></p>
+        <% } else { %>
+          <p class="rank-font-35">#<%=  data.anime[i].rank; %></p>
+        <% } %>
+      </div>
+      <div class="col-sm card-img-div">
+        <img
+          class="card-img-resize"
+          src="<%= data.anime[i].image_url; %>"
+          alt="Anime image"
+        />
+      </div>
+      <div class="cards-content col-sm">
+        <h1 class="score">
+          <% if(data.anime[i].score !== 0){ %>
+            <% if(data.anime[i].score < 7){ %>
+              <span class="low-score">
+                <%= data.anime[i].score; %>
+              </span> 
+            <% } else { %>
+              <span>
+                <%= data.anime[i].score; %>
+              </span> 
+            <% } %>
+          <% } else { %>
+           <span class="na">N/A</span> 
+          <% } %>
+        </h1>
+        <div class="content">
+            <div class="box">
+            <h4>
+                <% if(data.anime[i].title.length > 20){ %>
+                <%=  data.anime[i].title.substring(0, 20) + '...' %>
+                <% } else { %>
+                <%=  data.anime[i].title %>
+                <% } %>
+            </h4>
+            <p>
+                (<%= data.anime[i].type %>) 
+                <% if(data.anime[i].episodes !== null){ %>
+                <%= data.anime[i].episodes %>
+                <% } else { %>
+                <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            <p>
+                <% if(data.anime[i].end_date !== null){ %>
+                <%= data.anime[i].start_date %> - <%= data.anime[i].end_date %>
+                <% } else { %>
+                <%= data.anime[i].start_date %> -  <span class="na">N/A</span> 
+                <% } %>
+            </p>
+            </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <% } %>
+
+</div>
+<!-- Cards End -->
+<% } else { %>
+<!-- Cards Start -->
+<div class="row cards-row-modified modified-row">
+  <% for(let i=0; i<data.length;i++){ %>
+    <div class="cards card-shadow block-section" data-score="<%=  data[i].score; %>" 
+      data-imgUrl="<%= data[i].image_url; %>" data-title="<%=  data[i].title %>" 
+      data-genre="<%=  data[i].genres.map(x=>x.name).join(',') %>">
+      <div class="cards-col-lg">
+        <div class="card-rank col-sm">
+            <p class="rank">N/A</p>
+        </div>
+        <div class="col-sm card-img-div">
+          <img
+            class="card-img-resize"
+            src="<%= data[i].image_url; %>"
+            alt="Anime image"
+          />
+        </div>
+        <div class="cards-content col-sm">
+          <h1 class="score">
+            <% if(data[i].score !== 0){ %>
+              <% if(data[i].score < 7){ %>
+                <span class="low-score">
+                  <%= data[i].score; %>
+                </span> 
+              <% } else { %>
+                <span>
+                  <%= data[i].score; %>
+                </span> 
+              <% } %>
+            <% } else { %>
+             <span class="na">N/A</span> 
+            <% } %>
+          </h1>
+          <div class="content">
+              <div class="box">
+              <h4>
+                  <% if(data[i].title.length > 20){ %>
+                  <%=  data[i].title.substring(0, 20) + '...' %>
+                  <% } else { %>
+                  <%=  data[i].title %>
+                  <% } %>
+              </h4>
+              <p>
+                  (<%= data[i].type %>) 
+                  <% if(data[i].episodes !== null){ %>
+                  <%= data[i].episodes %>
+                  <% } else { %>
+                  <span class="na">N/A</span> 
+                  <% } %>
+              </p>
+              </div>
+          </div>
+  
+          <!-- <button class="button-add" data-bs-toggle="modal" data-bs-target="#listModal">
+            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="35" fill="#4ab4c0" class="bi bi-plus" viewBox="0 0 16 16">
+              <path d="M8 4a.5.5 0 0 1 .5.5v3h3a.5.5 0 0 1 0 1h-3v3a.5.5 0 0 1-1 0v-3h-3a.5.5 0 0 1 0-1h3v-3A.5.5 0 0 1 8 4z"/>
+            </svg>
+        </button> -->
+        </div>
+      </div>
+    </div>
+
+<% } %>
+<% } %>
+</div>
+<!-- Condition ends -->
+
+  <!-- HAMBURGER BUTTON Start -->
+  <button class="btn offcanvas-modified" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasExample" aria-controls="offcanvasExample">
+    <img src="/img/list.png" alt="">
+  </button>
+  
+  <%- include("components/offcanvas.ejs") %>
+    <!-- HAMBURGER BUTTON End -->
+<%- include("components/container-end.ejs") %> 
+<%- include("partials/footer.ejs") %>

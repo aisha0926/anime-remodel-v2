@@ -1,0 +1,50 @@
+<div
+  class="offcanvas offcanvas-start"
+  tabindex="-1"
+  id="offcanvasExample"
+  aria-labelledby="offcanvasExampleLabel"
+>
+  <div class="offcanvas-header">
+    <h5 class="offcanvas-title" id="offcanvasExampleLabel">Watch List</h5>
+    <button
+      type="button"
+      class="btn-close text-reset"
+      data-bs-dismiss="offcanvas"
+      aria-label="Close"
+    ></button>
+  </div>
+  <div class="offcanvas-body">
+    <!-- <div class="dropdown mt-3">
+      <button
+        class="btn btn-secondary dropdown-toggle"
+        type="button"
+        id="dropdownMenuButton"
+        data-bs-toggle="dropdown"
+      >
+        Dropdown button
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <li><a class="dropdown-item" href="#">Action</a></li>
+        <li><a class="dropdown-item" href="#">Another action</a></li>
+        <li><a class="dropdown-item" href="#">Something else here</a></li>
+      </ul>
+    </div> -->
+    <div>
+      <% for(let i = 0; i<animeList.length; i++){ %>
+        <p class="inline-block">
+        <form action="" class="inline-block">
+          <input type="checkbox" name="<%= i %>" id="ticks">
+        </form>
+        <% if(i === 0){ %>
+          <span><%= animeList[i] %></span>
+          <hr style="background-color: blue;">
+        <% } else { %>
+        <%= animeList[i] %>
+        <hr>
+        <% } %>
+      </p>
+      
+      <% } %>
+    </div>
+  </div>
+</div>

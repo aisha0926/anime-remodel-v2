@@ -1,0 +1,247 @@
+<!-- TABS Start -->
+<div class="content-bottom-border">
+    <% if(genre === false && seasons === false){ %>
+    <h1>
+      <% if(tabName !== null){ %> 
+        <%= tabName %> <% } else { %> Top Anime <% } %>
+    </h1>
+  
+    <% if(genreContent !== true){ %>
+    <ul class="tab-lists" id="tab-visible">
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/tv/Top Anime">All Anime</a>
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/airing/Top Airing"
+          >Top Airing</a
+        >
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/upcoming/Top Upcoming"
+          >Top Upcoming</a
+        >
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/tv/Top TV">Top TV</a>
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/movie/Top Movie">Top Movie</a>
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/ova/Top OVAs">Top OVAs</a>
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/anime/1/special/Top Special"
+          >Top Special</a
+        >
+      </li>
+    </ul>
+  
+      <!-- Dropdown -->
+      <div class="dropdown tab-lists-li" id="tab-toggle">
+        <a
+          class="dropdown-toggle nav-link-tabs btn-modified tab-lists-content"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+        Top
+        </a>
+  
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/tv/Top Anime">All Anime</a>
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/airing/Top Airing"
+              >Top Airing</a
+            >
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/upcoming/Top Upcoming"
+              >Top Upcoming</a
+            >
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/tv/Top TV">Top TV</a>
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/movie/Top Movie">Top Movie</a>
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/ova/Top OVAs">Top OVAs</a>
+          </li>
+          <li>
+            <a class="tablists-dropdown dropdown-item" href="/anime/1/special/Top Special"
+              >Top Special</a
+            >
+          </li>
+        
+        </ul>
+      </div>
+      <!-- Dropdown end -->
+  
+    <% } %> <% } %> <% if(seasons === true){ %>
+    <h1><%= tabName %> 
+      <% if(tabName !== 'Monday' && tabName !== 'Tuesday' && tabName !== 'Wednesday' && tabName !== 'Thursday' && tabName !== 'Friday' && tabName !== 'Saturday' && tabName !== 'Sunday'){ %>
+        (<%= seasonYear %>)
+      <% } %>
+    </h1>
+    <ul class="tab-lists">
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/seasons/summer/<%= seasonYear %>"
+          >Summer</a
+        >
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/seasons/spring/<%= seasonYear %>"
+          >Spring</a
+        >
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/seasons/fall/<%= seasonYear %>"
+          >Fall</a
+        >
+      </li>
+      <li class="tab-lists-li">
+        <a class="tab-lists-content" href="/seasons/winter/<%= seasonYear %>"
+          >Winter</a
+        >
+      </li>
+      <!-- Dropdown -->
+      <div class="dropdown tab-lists-li">
+        <a
+          class="dropdown-toggle nav-link-tabs btn-modified tab-lists-content"
+          href="#"
+          role="button"
+          id="dropdownMenuLink"
+          data-bs-toggle="dropdown"
+          aria-expanded="false"
+        >
+          Year
+        </a>
+  
+        <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2021"
+              >2021</a
+            >
+          </li>
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2020"
+              >2020</a
+            >
+          </li>
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2019"
+              >2019</a
+            >
+          </li>
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2018"
+              >2018</a
+            >
+          </li>
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2017"
+              >2017</a
+            >
+          </li>
+          <li>
+            <a
+              class="tablists-dropdown dropdown-item"
+              href="/seasons/<%= seasonName %>/2016"
+              >2016</a
+            >
+          </li>
+        </ul>
+      </div>
+      <!-- Dropdown end -->
+  
+         <!-- Dropdown -->
+      <div class="dropdown tab-lists-li">
+          <a
+            class="dropdown-toggle nav-link-tabs btn-modified tab-lists-content"
+            href="#"
+            role="button"
+            id="dropdownMenuLink"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Daily Release
+          </a>
+    
+          <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/monday"
+                >Monday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/tuesday"
+                >Tuesday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/wednesday"
+                >Wednesday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/thursday"
+                >Thursday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/friday"
+                >Friday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/saturday"
+                >Saturday</a
+              >
+            </li>
+            <li>
+              <a
+                class="tablists-dropdown dropdown-item"
+                href="/schedule/sunday"
+                >Sunday</a
+              >
+            </li>
+          </ul>
+        </div>
+        <!-- Dropdown end -->
+        </ul>
+      </li>
+      <!-- li end -->
+    </ul>
+  
+    <% } %>
+  </div>
+  <!-- TABS End -->
+  

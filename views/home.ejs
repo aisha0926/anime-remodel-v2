@@ -1,0 +1,184 @@
+<%- include("partials/header.ejs") %> 
+<%- include("partials/navbar.ejs") %> 
+<%- include("components/container-open.ejs") %> 
+<%- include("components/breadcrumb.ejs") %> 
+<%- include("components/spinner.ejs") %>
+<%- include("components/anime-modal.ejs") %>
+
+<section id="top-anime" class="cards-row-modified">
+  <h1>Top Anime</h1>
+  <div class="table-responsive">
+    <table class="table align-middle table-hover parent-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i< data.top.length; i++){ %> <% if(i < 5){ %>
+        <tr
+          class="block-section block-section-table"
+          data-score="<%=  data.top[i].score; %>"
+          data-imgUrl="<%= data.top[i].image_url; %>"
+          data-title="<%=  data.top[i].title %>"
+          data-type="<%=  data.top[i].type %>"
+        >
+          <td><%= data.top[i].rank %></td>
+          <td>
+            <img
+              class="card-img-resize"
+              src="<%= data.top[i].image_url %>"
+              alt="..."
+            />
+          </td>
+          <td><%= data.top[i].title %></td>
+          <td><%= data.top[i].score %></td>
+        </tr>
+        <% } %> <% } %>
+      </tbody>
+    </table>
+    <div class="d-grid gap-2">
+      <button class="btn btn-outline-dark" type="button">View More</button>
+    </div>
+  </div>
+</section>
+
+<section id="top-manhwa" class="cards-row-modified">
+  <h1>Top Manhwa</h1>
+  <div class="table-responsive">
+    <table class="table align-middle table-hover child-table">
+      <thead>
+        <tr>
+          <th scope="col">#</th>
+          <th scope="col">Image</th>
+          <th scope="col">Title</th>
+          <th scope="col">Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% for(let i = 0; i < data2.top.length; i++){ %> <% if(i < 5){ %>
+        <tr
+          class="block-section second-section"
+          data-score="<%=  data2.top[i].score; %>"
+          data-imgUrl="<%= data2.top[i].image_url; %>"
+          data-title="<%=  data2.top[i].title %>"
+          data-type="<%=  data2.top[i].type %>"
+        >
+          <td><%= data2.top[i].rank %></td>
+          <td>
+            <img
+              class="card-img-resize"
+              src="<%= data2.top[i].image_url %>"
+              alt="Top Manhwa image"
+            />
+          </td>
+          <td><%= data2.top[i].title %></td>
+          <td><%= data2.top[i].score %></td>
+        </tr>
+
+        <!-- Modal -->
+        <div
+          class="modal fade"
+          id="manhwa"
+          tabindex="-1"
+          aria-labelledby="exampleModalLabel"
+          aria-hidden="true"
+        >
+          <div class="modal-dialog">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel">
+                  <%= data2.top[i].title %>
+                </h5>
+                <button
+                  type="button"
+                  class="btn-close"
+                  data-bs-dismiss="modal"
+                  aria-label="Close"
+                ></button>
+              </div>
+              <div class="modal-body">
+                <img
+                  class="card-img-resize"
+                  src="<%= data2.top[i].image_url %>"
+                  alt="Top Manhwa image"
+                />
+                <p>
+                  <%= data2.top[i].start_date %> - <%= data2.top[i].end_date %>
+                </p>
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="btn btn-secondary"
+                  data-bs-dismiss="modal"
+                >
+                  Close
+                </button>
+                <!-- <button type="button" class="btn btn-primary">
+                        Save changes
+                      </button> -->
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- Modal end -->
+        <% } %> <% } %>
+      </tbody>
+    </table>
+    <div class="d-grid gap-2">
+      <button class="btn btn-outline-dark" type="button">View More</button>
+    </div>
+  </div>
+</section>
+
+<aside id="side-bar">
+  <h1>Announcements</h1>
+  <table>
+    <tr>
+      <td>
+        <a href="#"
+          >23/06/2021 - Added Login and Sign up functionality as well as
+          database which allows you to save your own watchlist in your own
+          database.</a
+        >
+      </td>
+    </tr>
+    <tr>
+      <td>
+        <a href="#"
+          >02/06/2021 - This web application is constantly updated. For legal
+          purposes, I have refrained from scraping videos.</a
+        >
+        <hr />
+      </td>
+    </tr>
+    <hr />
+    <tr>
+      <td>
+        <a href="#">Will be updating the site from time to time.</a>
+      </td>
+    </tr>
+  </table>
+</aside>
+
+<!-- HAMBURGER BUTTON Start -->
+<button
+  class="btn offcanvas-modified"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample"
+  aria-controls="offcanvasExample"
+>
+  <img src="/img/list.png" alt="" />
+</button>
+
+<%- include("components/offcanvas.ejs") %>
+<!-- HAMBURGER BUTTON End -->
+
+<%- include("components/modal.ejs") %> 
+<%- include("components/container-end.ejs") %>
+ <%- include("partials/footer.ejs") %>

@@ -1,0 +1,49 @@
+<%- include("partials/header.ejs") %> <%- include("partials/navbar.ejs") %> <%-
+include("components/container-open.ejs") %> <%-
+include("components/breadcrumb.ejs") %>
+<h1>Genre</h1>
+<hr />
+
+<%- include("components/spinner.ejs") %>
+
+<div class="data-content cards-row-modified">
+  <% for(let i = 1; i < data.length; i++){ %>
+  <a class="tr-content" href="/genre/anime/<%= i %>">
+    <div class="tr-content">
+      &#187; <%= data[i] %> <% if(i == 27 && i == 1){ %>
+      <span class="badge bg-secondary">⭐</span>
+      <% } %>
+    </div>
+  </a>
+  <% } %>
+</div>
+
+<!-- <h1>Manga</h1>
+
+<div class="data-content cards-row-modified">
+  <% for(let i = 1; i < manga.length; i++){ %>
+  <a class="tr-content" href="/genre/manga/<%= i %>">
+    <div class="tr-content">
+      &#187; <%= manga[i] %> 
+      <% if(i == 27 && i == 1){ %>
+      <span class="badge bg-secondary">⭐</span>
+      <% } %>
+    </div>
+  </a>
+  <% } %>
+</div> -->
+<!-- HAMBURGER BUTTON Start -->
+<button
+  class="btn offcanvas-modified"
+  type="button"
+  data-bs-toggle="offcanvas"
+  data-bs-target="#offcanvasExample"
+  aria-controls="offcanvasExample"
+>
+  <img src="/img/list.png" alt="" />
+</button>
+
+<%- include("components/offcanvas.ejs") %>
+<!-- HAMBURGER BUTTON End -->
+<%- include("components/container-end.ejs") %> <%-
+include("partials/footer.ejs") %>
